@@ -1,0 +1,76 @@
+body {
+  background: #121212;
+  color: #f0f0f0;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  margin: 0;
+}
+
+.container {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #00ffbf;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  background: #333;
+  color: white;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  background: #00ffbf;
+  color: #121212;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.25s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #00cca6;
+}
+
+button:disabled {
+  background-color: #004d40;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #00ffbf;
+  min-height: 1.5em;
+}
+
+/* Responsive si besoin */
+@media (max-width: 450px) {
+  .container {
+    padding: 1.5rem;
+    max-width: 90vw;
+  }
+}
