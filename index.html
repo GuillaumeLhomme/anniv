@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escape Game - Validation</title>
+  <style>
+    body {
+      background: #121212;
+      color: #f0f0f0;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .container {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #00ffbf;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    input, button {
+      padding: 0.75rem;
+      margin-top: 1rem;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    input {
+      background: #333;
+      color: white;
+    }
+    button {
+      background: #00ffbf;
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .message {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧩 Énigme <span id="stepNum">1</span></h1>
+    <p>Entrez la réponse pour valider cette énigme.</p>
+    <input type="text" id="response" placeholder="Votre réponse..." />
+    <button onclick="checkAnswer()">Valider</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    // Réponses déjà encodées en base64 pour éviter qu'elles soient visibles en clair
+    const answers = [
+      "NzA=",          // "70"
+      "Y2xl",          // "cle"
+      "c2VjcmV0",      // "secret"
+      "cHV6emxl"       // "puzzle"
+    ];
+
+    let currentStep = 0;
+
+    function checkAnswer() {
+      const input = document.getElementById("response").value.trim().toLowerCase();
+      const message = document.getElementById("message");
+      const encodedInput = btoa(input);
+
+      if (encodedInput === answers[currentStep]) {
+        message.style.color = "#00ffbf";
+        message.textContent = "✅ Bravo ! Montrez cette page au maître du jeu.";
+        currentStep++;
+
+        if (currentStep < answers.length) {
+          setTimeout(() => {
+            message.textContent = "";
+            document.getElementById("response").value = "";
+            document.getElementById("stepNum").textContent = currentStep + 1;
+          }, 2000);
+        } else {
+          message.textContent = "🎉 Toutes les énigmes sont résolues ! Vous avez réussi !";
+        }
+      } else {
+        message.style.color = "#ff4444";
+        message.textContent = "❌ Mauvaise réponse, essayez encore.";
+      }
+    }
+  </script>
+</body>
+</html>
