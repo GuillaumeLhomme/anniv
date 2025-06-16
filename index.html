@@ -64,10 +64,11 @@
   <script>
     // Réponses déjà encodées en base64 pour éviter qu'elles soient visibles en clair
     const answers = [
-      "NzA=",          // "70"
-      "Y2xl",          // "cle"
-      "c2VjcmV0",      // "secret"
-      "cHV6emxl"       // "puzzle"
+      "MTUwNjU1",
+      "bWFydGluZQ==",
+      "Y2hvY29sYXQ=",     
+      "aGFwcHkgYmlydGhkYXkgbWFydGluZQ==",
+      "NzA=" 
     ];
 
     let currentStep = 0;
@@ -75,7 +76,7 @@
     function checkAnswer() {
       const input = document.getElementById("response").value.trim().toLowerCase();
       const message = document.getElementById("message");
-      const encodedInput = btoa(input);
+      const encodedInput = btoa(input.toLowerCase());
 
       if (encodedInput === answers[currentStep]) {
         message.style.color = "#00ffbf";
