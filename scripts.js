@@ -27,7 +27,7 @@ let essais = 0;
 let cooldown = 0;
 let teamName = localStorage.getItem("teamName") || "";
 
-const endpoint = "https://script.google.com/macros/s/AKfycbzc0_pOuGbrNsD79z8vIER1BBfUgKfDxgLJEfYF1dcVrQb15QSIoupX2lU1ryOufxk/exec";
+const endpoint = "https://script.google.com/macros/s/AKfycbzHShXNt6ZDqm_ecxyLGMsqJq34TJcMHW69kDtYutltBvHvplEDVlfe06aAcpOqAuU/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   let teamName = localStorage.getItem("teamName");
